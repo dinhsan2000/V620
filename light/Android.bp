@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-meizu_sm8150_light_hal_binary {
+V620A_light_hal_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
     name: "android.hardware.light@2.0-service.V620A",
