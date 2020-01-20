@@ -48,6 +48,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     V620AParts
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.V620A
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
     mokee.livedisplay@2.0-service-V620A
