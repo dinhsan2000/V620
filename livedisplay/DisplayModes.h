@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_MOKEE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
-#define VENDOR_MOKEE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
+#ifndef VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
+#define VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
 
-#include <vendor/mokee/livedisplay/2.0/ISunlightEnhancement.h>
+#include <vendor/mokee/livedisplay/2.0/IDisplayModes.h>
 
 namespace vendor {
 namespace mokee {
@@ -29,15 +29,26 @@ namespace sysfs {
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 
-#define FILE_HBM "/sys/class/vsm/lcm/display/hbm"
+#define FILE_LUT "/sys/class/vsm/lcm/display/lut"
+#define FILE_LUT_DEFAULT "/data/vendor/display/mokee_color_profile"
 
-class SunlightEnhancement : public ISunlightEnhancement {
+class DisplayModes : public IDisplayModes {
   public:
+    DisplayModes();
+
     bool isSupported();
 
-    // Methods from ::vendor::mokee::livedisplay::V2_0::ISunlightEnhancement follow.
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enabled) override;
+    // Methods from ::vendor::mokee::livedisplay::V2_0::IDisplayModes follow.
+    Return<void> getDisplayModes(getDisplayModes_cb _hidl_cb) override;
+    Return<void> getCurrentDisplayMode(getCurrentDisplayMode_cb _hidl_cb) override;
+    Return<void> getDefaultDisplayMode(getDefaultDisplayMode_cb _hidl_cb) override;
+    Return<bool> setDisplayMode(int32_t modeID, bool makeDefault) override;
+
+  private:
+    std::vector<DisplayMode> mDisplayModes;
+
+    DisplayMode getDisplayModeInternal(const char *file);
+    DisplayMode getDefaultDisplayModeInternal();
 };
 
 }  // namespace sysfs
@@ -46,4 +57,4 @@ class SunlightEnhancement : public ISunlightEnhancement {
 }  // namespace mokee
 }  // namespace vendor
 
-#endif  // VENDOR_MOKEE_LIVEDISPLAY_V2_0_SUNLIGHTENHANCEMENT_H
+#endif  // VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
