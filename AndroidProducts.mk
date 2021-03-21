@@ -5,7 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/mokee_V620A.mk
+    $(LOCAL_DIR)/lineage_V620A.mk
 
 COMMON_LUNCH_CHOICES := \
-    mokee_V620A-userdebug
+    lineage_V620A-userdebug

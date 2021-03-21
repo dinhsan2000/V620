@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2019 The LineageOS Project
- * Copyright (C) 2020 The MoKee Open Source Project
+ * Copyright (C) 2020 The lineage Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 
 #include <dlfcn.h>
 
-#define LOG_TAG "mokee.livedisplay@2.0-service-V620A"
+#define LOG_TAG "LINEAGE.livedisplay@2.0-service-V620A"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
@@ -38,12 +38,12 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using ::vendor::mokee::livedisplay::V2_0::IDisplayModes;
-using ::vendor::mokee::livedisplay::V2_0::IPictureAdjustment;
-using ::vendor::mokee::livedisplay::V2_0::ISunlightEnhancement;
-using ::vendor::mokee::livedisplay::V2_0::sdm::PictureAdjustment;
-using ::vendor::mokee::livedisplay::V2_0::sysfs::DisplayModes;
-using ::vendor::mokee::livedisplay::V2_0::sysfs::SunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::IDisplayModes;
+using ::vendor::lineage::livedisplay::V2_0::IPictureAdjustment;
+using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
+using ::vendor::lineage::livedisplay::V2_0::sysfs::DisplayModes;
+using ::vendor::lineage::livedisplay::V2_0::sysfs::SunlightEnhancement;
 
 int main() {
     // Vendor backend
